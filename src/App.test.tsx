@@ -3,6 +3,9 @@ import App, { GET_DOGS } from "src/App";
 import { MockedProvider } from "@apollo/client/testing";
 
 describe("App", () => {
+  beforeEach(() => jest.useFakeTimers());
+  afterEach(() => jest.useRealTimers());
+
   it("renders", async () => {
     const dogMock = {
       request: { query: GET_DOGS },
@@ -16,6 +19,3 @@ describe("App", () => {
     expect(await screen.findByText("An error occurred")).toBeDefined();
   });
 });
-
-beforeEach(() => jest.useFakeTimers());
-afterEach(() => jest.useRealTimers());
