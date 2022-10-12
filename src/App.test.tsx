@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import App, { GET_DOGS } from "src/App";
 import { MockedProvider } from "@apollo/client/testing";
-// import { MockedProvider } from "@homebound/better-apollo-mocked-provider";
 
 describe("App", () => {
   it("renders", async () => {
