@@ -9,5 +9,5 @@ for i in "${versions[@]}"; do
   yarn
   git add package.json yarn.lock
   git commit -m "try version $i"
-  git push origin bisect
+  git push origin bisect-react-18
 done
