@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import App, { GET_DOGS, GET_CATS } from "src/App";
+import App, { GET_DOGS } from "src/App";
 import { MockedProvider } from "@apollo/client/testing";
 // import { MockedProvider } from "@homebound/better-apollo-mocked-provider";
 

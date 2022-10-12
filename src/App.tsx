@@ -1,5 +1,4 @@
 import { gql, useQuery } from "@apollo/client";
-import { useState } from "react";
 
 export const GET_DOGS = gql`
   query GetDogs {
@@ -10,20 +9,8 @@ export const GET_DOGS = gql`
   }
 `;
 
-export const GET_CATS = gql`
-  query GetCats {
-    cats {
-      id
-      breed
-    }
-  }
-`;
-
 function App() {
-  const [state, setState] = useState("");
-  const { data, loading, error } = useQuery(GET_DOGS, {
-    onError: (e) => setState(e?.message),
-  });
+  const { data, loading, error } = useQuery(GET_DOGS);
 
   if (!data && !loading && !error) {
     throw new Error("Unexpected state");
