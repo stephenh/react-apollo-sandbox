@@ -9,12 +9,8 @@ describe("App", () => {
       request: { query: GET_DOGS },
       error: new Error("An error occurred"),
     };
-    const catMock = {
-      request: { query: GET_CATS },
-      result: { data: { cats: [] } },
-    };
     render(
-      <MockedProvider mocks={[dogMock, catMock]}>
+      <MockedProvider mocks={[dogMock]}>
         <App />
       </MockedProvider>
     );

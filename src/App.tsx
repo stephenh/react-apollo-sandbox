@@ -21,26 +21,17 @@ export const GET_CATS = gql`
 
 function App() {
   const [state, setState] = useState("");
-  const q1 = useQuery(GET_DOGS, { onError: (e) => setState(e?.message) });
-  console.log("q1", {
-    data: q1.data,
-    loading: q1.loading,
-    error: q1.error?.message,
+  const { data, loading, error } = useQuery(GET_DOGS, {
+    onError: (e) => setState(e?.message),
   });
 
-  // const q2 = useQuery(GET_CATS, {
-  //   onError: (error) => setState(error?.message),
-  //   skip: false,
-  // });
-  // console.log("q2", {
-  //   data: q2.data,
-  //   loading: q2.loading,
-  //   error: q2.error?.message,
-  // });
+  if (!data && !loading && !error) {
+    throw new Error("Unexpected state");
+  }
 
   return (
     <h1>
-      Vite + React <div>{q1.error?.message}</div>
+      Vite + React <div>{error?.message}</div>
     </h1>
   );
 }
